@@ -1,14 +1,15 @@
 # Utilisez une image de base appropriée pour votre application, par exemple :
-FROM openjdk:8-jre-alpine
+FROM maven:3.8.5openjdk-17 AS build
+COPY . . 
+RUN mvn clean package -DskipTests
+FROM openjdk:17.0.1-jdk-slim
 
-# Créez le répertoire de travail
-WORKDIR /app
 
 # Copiez le fichier JAR dans le conteneur
-COPY target/CRUD-0.0.1-SNAPSHOT.jar /app/CRUD-0.0.1-SNAPSHOT.jar
+COPY  --from=build /target/CRUD-0.0.1-SNAPSHOT.jar CRUD.jar
 
 # Exposez le port sur lequel votre application s'exécute (remplacez <PORT> par le port réel)
 EXPOSE 5500
 
 # Commande pour exécuter votre application (ajustez selon vos besoins)
-CMD ["java", "-jar", "CRUD-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "CRUD-0.0.1-SNAPSHOT.jar","CRUD.jar"]
