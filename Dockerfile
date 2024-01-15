@@ -6,7 +6,7 @@ FROM adoptopenjdk:11-jre-hotspot
 WORKDIR /app
 
 # Copiez le fichier JAR de votre application dans le conteneur
-COPY target/CRUD-0.0.1-SNAPSHOT.jar app.jar
+COPY target/CRUD-0.0.1-SNAPSHOT.jar /app/
 
 # Exposez le port sur lequel votre application s'exécute (si votre application utilise le port 5500)
 EXPOSE 5500
