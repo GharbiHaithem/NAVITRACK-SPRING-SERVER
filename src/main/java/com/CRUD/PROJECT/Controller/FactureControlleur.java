@@ -21,6 +21,8 @@ import com.CRUD.PROJECT.entities.Client;
 import com.CRUD.PROJECT.entities.Facture;
 import com.CRUD.PROJECT.entities.Vehicule;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/api/factures")
@@ -41,15 +43,18 @@ public List<Facture> getFacture( @PathVariable(name="id") String clientId){
 	return factureService.getFact(clientId);
 	
 }
+  @Operation(hidden = true) 
 @GetMapping("/")
 public List<Facture> allFactures() {
 	return factureService.getAllFactures();
 }
+@Operation(hidden = true) 
 @PostMapping("/genererMensuelle")
 public ResponseEntity<String>  genererNouvelleFactureMensuelle(){
 	factureService.genererNouvelleFacture();
 	return ResponseEntity.ok("Nouvelle facture generer avec succees");
 }
+@Operation(hidden = true) 
 @PutMapping("/update-etat/{id}")
 public ResponseEntity<Response> updateEtatPayment(@PathVariable(name="id") String factureId){
 	return factureService.updateEtatFact(factureId);

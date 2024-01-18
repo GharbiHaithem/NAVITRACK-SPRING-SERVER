@@ -24,6 +24,8 @@ import com.CRUD.PROJECT.Service.VehiculeService;
 import com.CRUD.PROJECT.entities.Client;
 import com.CRUD.PROJECT.entities.Vehicule;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 
 
 
@@ -47,20 +49,22 @@ public class VehiculeController {
     	return   vehiculeService.saveorUpdate(vehicule,appareilId);
     	
     }
+      @Operation(hidden = true) 
     @GetMapping("/test")
     public String testEndpoint() {
         return "Ceci est un point de terminaison de test";
     }
+    @Operation(hidden = true) 
     @GetMapping(value="/getAll")
 	public List<Vehicule>getallUsers() {
 	    return vehiculeService.listVehicules();
 	}
-    
+    @Operation(hidden = true) 
     @PutMapping("/edit/{id}")
     public Vehicule modifierVehicule(@PathVariable(name="id") String _id, @RequestBody Vehicule vehiculeModifie) {
         return vehiculeService.modifierVehicule(_id, vehiculeModifie);
     }
-    
+    @Operation(hidden = true) 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Response> deleteVehicule(@PathVariable(name="id") String vehiculeId){
 		return vehiculeService.deleteVehicule(vehiculeId);
@@ -82,6 +86,7 @@ public class VehiculeController {
   public List<Vehicule> getVehiculeClient(@PathVariable(name="id") String clientId){
 	  return vehiculeService.getVehiculesClient(clientId);
   }
+  @Operation(hidden = true) 
   @GetMapping("/search1")
   public List<Vehicule> getVehiculesByNomClient(@RequestParam(name = "nomComplet", required = true) String nomClient) {
       return vehiculeService.searchVehiculesByClientName(nomClient);
