@@ -21,6 +21,8 @@ import com.CRUD.PROJECT.Response;
 import com.CRUD.PROJECT.Service.ClientService;
 import com.CRUD.PROJECT.entities.Client;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/api/client")
@@ -55,6 +57,7 @@ public class ClientController {
   public ResponseEntity<Response> updateClient(@PathVariable(name="id") String _id , @RequestBody Client dataClient){
 	  return clientService.updateClient(_id,  dataClient);
   }
+  @Operation(hidden = true) 
   @DeleteMapping("/delete/{id}")
   public ResponseEntity<Response> deleteClient(@PathVariable(name="id") String _id){
 	  return clientService.deleteArchiveClient(_id);
