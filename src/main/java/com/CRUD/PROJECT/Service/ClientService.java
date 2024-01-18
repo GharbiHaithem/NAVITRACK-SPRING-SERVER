@@ -90,6 +90,15 @@ public class ClientService {
 		}
 		
 	}
+    public ResponseEntity<Response> getAllClientByUserId(String userId) {
+     Client client = clientRepo.findByUser(userId);    
+	 if (client != null) {
+		return  ResponseEntity.ok(new Response(null,null,null, client, null, null) );
+	} else {
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Response("Companie non trouvé avec cette user", null, null, null, null));
+	}
+   
+    }
 
 	
 	

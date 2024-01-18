@@ -59,5 +59,10 @@ public class ClientController {
   public ResponseEntity<Response> deleteClient(@PathVariable(name="id") String _id){
 	  return clientService.deleteArchiveClient(_id);
   }
+  @GetMapping("/client/{id}")
+  public ResponseEntity<Response> getMyClient(@PathVariable(name="id") String userId) {
+      return clientService.getAllClientByUserId(userId);
+  }
+  
 
 }
