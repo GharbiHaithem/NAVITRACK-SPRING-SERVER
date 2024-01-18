@@ -19,8 +19,7 @@ public class User {
     private String passwordClaire;
     
  
-	@DBRef
-    private Client clients;
+
     @DBRef 
     private List<User> subUsers ;
     public String getFirstname() {
@@ -48,7 +47,7 @@ public class User {
 		this.password = password;
 		this.address = address;
 		this.role = role;
-		this.clients = clients;
+		
 		this.subUsers = subUsers;
 	}
 
@@ -72,9 +71,7 @@ public class User {
 		this.lastname = lastname;
 	}
 
-	public Client getClients() {
-		return clients;
-	}
+	
 
 	public User(String _id, String firstname, String lastname, String email, String password, String address,
 			Client clients, List<User> subUsers , String role) {
@@ -85,14 +82,12 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.address = address;
-		this.clients = clients;
+		
 		this.subUsers = subUsers;
 		this.role=role;
 	}
 
-	public void setClients(Client clients) {
-		this.clients = clients;
-	}
+	
 
 	public void setFirstname(String firstname) {
         this.firstname = firstname;
@@ -154,7 +149,7 @@ public class User {
         this.address = address;
         this.role = role;
         this.passwordClaire = passwordClaire;
-        this.clients = clients;
+       
         this.subUsers = subUsers;
     }
 

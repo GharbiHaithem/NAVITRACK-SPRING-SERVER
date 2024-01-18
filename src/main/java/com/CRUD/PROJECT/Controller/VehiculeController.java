@@ -41,6 +41,7 @@ public class VehiculeController {
     public VehiculeService vehiculeService;
     @Autowired
     public FactureService factureService ;
+    @Operation(hidden = true) 
     @PostMapping(value="/save")
     public ResponseEntity<Response>  saveVehicule(@RequestBody Vehicule vehicule ) throws ParseException {
     	String appareilId = vehicule.getAppareil().get_id();
