@@ -37,7 +37,7 @@ public class AppareilController {
 	
 	 @Autowired
 	    public AppareilService appareilService  ;
-		@Operation(hidden = true) 
+	
 	 @PostMapping("/save")
 	    public ResponseEntity<Response> saveAppareil(@RequestBody Appareil appareil) {
 		 System.out.println(appareil);
@@ -48,12 +48,12 @@ public class AppareilController {
 	  public String justTest() {
 		  return "This is Test";
 	  }
-	  @Operation(hidden = true) 
+	
 	  @GetMapping("/withCategories")
 	    public List<Appareil> getAllAppareilsWithCategories() {
 	        return appareilService.getAll();
 	    }
-	    @Operation(hidden = true) 
+	   
 	  @DeleteMapping("/delete/{id}")
 	  public ResponseEntity<Response> deleteAppareil(@PathVariable(name="id") String appareilId ) {
 		
@@ -72,12 +72,12 @@ public class AppareilController {
 		return appareilService.getappareil(appareilId);
 		  
 	  }
-	    @Operation(hidden = true) 
+	  
 	  @PutMapping("/update/quantity/{id}")
 	  public ResponseEntity<Response> updateAppareilQuantity(@PathVariable(name="id") String _id , @RequestBody Appareil qtyStock){
 		  return appareilService.updateQuantity(_id,qtyStock);
 	  }
-	  @Operation(hidden = true) 
+	 
 	  @PutMapping("/edit/{id}")
 	  public ResponseEntity<Response> updateAppareil(@PathVariable(name="id") String _id , @RequestBody Appareil dataAppareil){
 		  return appareilService.updateAppareil(_id,dataAppareil);
