@@ -1,6 +1,7 @@
 package com.CRUD.PROJECT.Repo;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
@@ -17,6 +18,8 @@ public interface AppareilRepo extends MongoRepository<Appareil, String> {
 	}
 
 	public List<Appareil> findBySerialNumberContaining(String terme);
+
+	public Optional<Appareil> findBySerialNumber(String serialNumber);
 
 
 

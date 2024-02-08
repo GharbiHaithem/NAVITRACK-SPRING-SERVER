@@ -15,25 +15,37 @@ private String serialNumber;
 private  Double  priceUnite;
 private Number qtyStock;
 private Boolean accessoire = false; 
+private Boolean affected = false;
 @DBRef
- private List<Category> category = new ArrayList<>();
+private Category category;
  
 public Appareil() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-public Appareil(String _id, String serialNumber,  List<Category> categories, Double priceUnite, Number qtyStock , String modalTag) {
+public Appareil(String _id, String serialNumber,  Category category, Double priceUnite, Number qtyStock , String modalTag) {
 	super();
 	this._id = _id;
 	this.serialNumber = serialNumber;
-	   this.category.addAll(categories);
+	   this.category= category;
 	this.priceUnite = priceUnite;
 	this.qtyStock = qtyStock;
 	this.modalTag = modalTag;
 }
 
 public Appareil(String _id, String modalTag, String serialNumber, Double priceUnite, Number qtyStock,
-		Boolean accessoire, List<Category> category) {
+		Boolean accessoire, Boolean affected, Category category) {
+	this._id = _id;
+	this.modalTag = modalTag;
+	this.serialNumber = serialNumber;
+	this.priceUnite = priceUnite;
+	this.qtyStock = qtyStock;
+	this.accessoire = accessoire;
+	this.affected = affected;
+	this.category = category;
+}
+public Appareil(String _id, String modalTag, String serialNumber, Double priceUnite, Number qtyStock,
+		Boolean accessoire, Category category) {
 	super();
 	this._id = _id;
 	this.modalTag = modalTag;
@@ -41,7 +53,7 @@ public Appareil(String _id, String modalTag, String serialNumber, Double priceUn
 	this.priceUnite = priceUnite;
 	this.qtyStock = qtyStock;
 	this.accessoire = accessoire;
-	  this.category.addAll(category);
+	  this.category=category;
 }
 public Boolean getAccessoire() {
 	return accessoire;
@@ -80,16 +92,22 @@ public Number getQtyStock() {
 public void setQtyStock(Number qtyStock) {
 	this.qtyStock = qtyStock;
 }
-public List<Category> getCategory() {
+public Category getCategory() {
 	return category;
 }
-public void setCategory(List<Category> category) {
+public void setCategory(Category category) {
 	this.category = category;
 }
 @Override
 public String toString() {
 	return "Appareil [_id=" + _id + ", modalTag=" + modalTag + ", serialNumber=" + serialNumber + ", priceUnite="
 			+ priceUnite + ", qtyStock=" + qtyStock + ", accessoire=" + accessoire + ", category=" + category + "]";
+}
+public Boolean getAffected() {
+	return affected;
+}
+public void setAffected(Boolean affected) {
+	this.affected = affected;
 }
 
  

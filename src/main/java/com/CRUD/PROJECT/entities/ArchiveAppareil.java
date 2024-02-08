@@ -16,7 +16,7 @@ public class ArchiveAppareil {
 	private Number qtyStock;
 	private Boolean accessoire = false; 
 	@DBRef
-	 private List<Category> category = new ArrayList<>();
+	 private Category category ;
 	public String get_id() {
 		return _id;
 	}
@@ -53,14 +53,14 @@ public class ArchiveAppareil {
 	public void setAccessoire(Boolean accessoire) {
 		this.accessoire = accessoire;
 	}
-	public List<Category> getCategory() {
+	public Category getCategory() {
 		return category;
 	}
-	public void setCategory(List<Category> category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
 	public ArchiveAppareil(String _id, String modalTag, String serialNumber, Double priceUnite, Number qtyStock,
-			Boolean accessoire, List<Category> category) {
+			Boolean accessoire, Category category) {
 		super();
 		this._id = _id;
 		this.modalTag = modalTag;

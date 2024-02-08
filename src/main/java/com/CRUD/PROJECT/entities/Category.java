@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Category {
   @Id
   private String _id;
+  private int qtyStock = 0; 
   public String get_id() {
 	return _id;
 }
@@ -15,6 +16,14 @@ public class Category {
 
 public void set_id(String _id) {
 	this._id = _id;
+}
+
+
+
+public Category( int qtyStock, String name) {
+	
+	this.qtyStock = qtyStock;
+	this.name = name;
 }
 
 
@@ -53,6 +62,16 @@ public Category(String _id, String name) {
 	super();
 	this._id = _id;
 	this.name = name;
+}
+
+
+public int getQtyStock() {
+	return qtyStock;
+}
+
+
+public void setQtyStock(int qtyStock) {
+	this.qtyStock = qtyStock;
 }
 
 

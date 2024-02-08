@@ -22,5 +22,5 @@ public List<Client> findByMatriculeSocialeContaining(String termeRecherche);
 Optional<Client> findByNomCompletContaining(String nomComplet);
 
 
- Client findByUser(String userId);
+
 }

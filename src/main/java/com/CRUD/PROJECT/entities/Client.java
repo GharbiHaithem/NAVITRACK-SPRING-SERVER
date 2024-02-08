@@ -19,14 +19,13 @@ public class Client {
   private String secteurActivite;
   private String nomComplet;
   private Boolean affected = false;
-  @DBRef
-  private User user;
+ 
 
 
 
 
 public Client(String _id, String raisonSociale, String matriculeSociale, String siegeSociale, String email,
-		String telephone, String secteurActivite, String nomComplet, Boolean affected, User user) {
+		String telephone, String secteurActivite, String nomComplet, Boolean affected) {
 	super();
 	this._id = _id;
 	this.raisonSociale = raisonSociale;
@@ -37,18 +36,14 @@ public Client(String _id, String raisonSociale, String matriculeSociale, String 
 	this.secteurActivite = secteurActivite;
 	this.nomComplet = nomComplet;
 	this.affected = affected;
-	this.user = user;
+	
 }
 
 public Client() {
 super();
 }
-public User getUser() {
-	return user;
-}
-public void setUser(User user) {
-	this.user = user;
-}
+
+
 
 public Boolean getAffected() {
 	return affected;

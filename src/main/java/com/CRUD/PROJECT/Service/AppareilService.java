@@ -14,7 +14,7 @@ import com.CRUD.PROJECT.Repo.ArchiveAppareilRepo;
 import com.CRUD.PROJECT.Repo.VehiculeRepo;
 import com.CRUD.PROJECT.entities.Appareil;
 import com.CRUD.PROJECT.entities.ArchiveAppareil;
-import com.CRUD.PROJECT.entities.Category;
+
 import com.CRUD.PROJECT.entities.Vehicule;
 
 
@@ -32,12 +32,21 @@ public AppareilService(AppareilRepo appareilRepo , ArchiveAppareilRepo archiveAp
 }
 
 public ResponseEntity<Response> save(Appareil appareil) {
-  
-    
-    Appareil createdAppareil = appareilRepo.save(appareil);
-    Response response = new Response("Appareil créé avec succès", null, createdAppareil, null, null, null);
-    return new ResponseEntity<>(response, HttpStatus.OK);
+    String serialNumber = appareil.getSerialNumber();
+    Optional<Appareil> findSerialAppareil = appareilRepo.findBySerialNumber(serialNumber);
+
+    if (findSerialAppareil.isPresent()) {
+        // L'appareil avec le même numéro de série existe déjà
+        Response response = new Response("Erreur : Appareil avec le même numéro de série existe déjà", null, null, null, null, null);
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+    } else {
+        // Aucun appareil trouvé avec le même numéro de série, on peut l'ajouter
+        Appareil createdAppareil = appareilRepo.save(appareil);
+        Response response = new Response("Appareil créé avec succès", null, createdAppareil, null, null, null);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 }
+
 public List<Appareil> getAll() {
 	// TODO Auto-generated method stub
 	return appareilRepo.findAll();

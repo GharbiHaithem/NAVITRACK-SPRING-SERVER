@@ -17,7 +17,8 @@ public class User {
     private String address; 
     private String role;
     private String passwordClaire;
-    
+    @DBRef
+    private Client client; 
  
 
     @DBRef 
@@ -139,19 +140,7 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-    public User(String _id, String firstname, String lastname, String email, String password, String address,
-            String role, String passwordClaire, Client clients, List<User> subUsers) {
-        this._id = _id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.password = password;
-        this.address = address;
-        this.role = role;
-        this.passwordClaire = passwordClaire;
-       
-        this.subUsers = subUsers;
-    }
+
 
     public String getPasswordClaire() {
         return passwordClaire;
@@ -170,5 +159,27 @@ public class User {
             }
         }
         return null; // Retourne null si l'ID n'est pas trouvé dans la liste des sous-utilisateurs
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public User(String _id, String firstname, String lastname, String email, String password, String address,
+            String role, String passwordClaire, Client client, List<User> subUsers) {
+        this._id = _id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+        this.address = address;
+        this.role = role;
+        this.passwordClaire = passwordClaire;
+        this.client = client;
+        this.subUsers = subUsers;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }

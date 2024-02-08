@@ -51,7 +51,7 @@ public List<Facture> allFactures() {
 @Operation(hidden = true) 
 @PostMapping("/genererMensuelle")
 public ResponseEntity<String>  genererNouvelleFactureMensuelle(){
-	factureService.genererNouvelleFacture();
+	factureService.genererNouvelleFacture2();
 	return ResponseEntity.ok("Nouvelle facture generer avec succees");
 }
 @Operation(hidden = true) 

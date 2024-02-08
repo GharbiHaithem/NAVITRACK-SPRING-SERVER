@@ -13,6 +13,8 @@ private String _id;
 private String numeroFacture;
 private String dateDebut;
 private String dateFin;
+private String pathUrl;
+private Boolean statusSend=false;
 @DBRef
 private List<Appareil> appareilId;
 @DBRef
@@ -38,8 +40,28 @@ public Facture(String _id, String numeroFacture, String dateDebut, String dateFi
     this.total = total;
 }
 
+public String getPathUrl() {
+	return pathUrl;
+}
+
+public Boolean getStatusSend() {
+	return statusSend;
+}
+
 public Double getTotal() {
 	return total;
+}
+
+public void setPathUrl(String pathUrl) {
+	this.pathUrl = pathUrl;
+}
+
+public void setStatusSend(Boolean statusSend) {
+	this.statusSend = statusSend;
+}
+
+public void setTotal(Double total) {
+	this.total = total;
 }
 
 public void setTotal(double d) {
@@ -68,6 +90,21 @@ public void set_id(String _id) {
 public String getDateDebut() {
 	return dateDebut;
 }
+
+public Facture(String numeroFacture, String dateDebut, String dateFin, String pathUrl, Boolean statusSend,
+		List<Appareil> appareilId, Client clientId, String etat, Float priceUnitaire, Double total) {
+	this.numeroFacture = numeroFacture;
+	this.dateDebut = dateDebut;
+	this.dateFin = dateFin;
+	this.pathUrl = pathUrl;
+	this.statusSend = statusSend;
+	this.appareilId = appareilId;
+	this.clientId = clientId;
+	this.etat = etat;
+	this.priceUnitaire = priceUnitaire;
+	this.total = total;
+}
+
 public void setDateDebut(String dateDebut) {
 	this.dateDebut = dateDebut;
 }

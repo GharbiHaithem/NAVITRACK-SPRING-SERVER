@@ -69,17 +69,8 @@ public class VehiculeService {
             Optional<Appareil> findAppareil = repo1.findById(appareilId);
             if (findAppareil.isPresent()) {
                 Appareil appareil = findAppareil.get();
-                Number qtyStock = (Number) appareil.getQtyStock(); 
-                System.out.println("Quantité de stock de l'appareil : " + qtyStock);
-                if(qtyStock.intValue()>0) {
-                	 int newQtyStock = qtyStock.intValue() - 1;
-                     appareil.setQtyStock(newQtyStock);
-                     repo1.save(appareil);
-
-                     System.out.println("Quantité de stock de l'appareil mise à jour : " + newQtyStock);
-                 } else {
-                     System.out.println("La quantité de stock de l'appareil est déjà à zéro.");
-                 }
+                appareil.setAffected(true);
+				repo1.save(appareil);
              }
             List<Facture> findFactures = repo3.findByClientId(clientId);
 
@@ -131,7 +122,9 @@ public class VehiculeService {
              repo3.save(facture);
             } else {
                 System.out.println("La liste des factures est vide.");
-                Facture existingFacture = findFactures.get(0);
+				int lastIndex = findFactures.size() - 1;
+				Facture existingFacture = findFactures.get(lastIndex);
+               
                 List<Appareil> existingAppareilIds = existingFacture.getAppareilId();
                 existingAppareilIds.add(createdVehicule.getAppareil());
                 maListe.add(createdVehicule.getAppareil());
