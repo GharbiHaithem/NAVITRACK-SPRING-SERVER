@@ -31,17 +31,15 @@ public class UserAccountController {
   @Autowired
   public  UserAccountService userAccountService;
 
-
   @GetMapping("/")
   public List<User> getAll() {
-      return userAccountService.rechercher( );
+      return userAccountService.rechercher();
   }
-  
   @PostMapping("/createSubUser/{parentId}")
-  public ResponseEntity<User> createSubUser(
-          @PathVariable String parentId, @RequestBody User user) {
-      userAccountService.createSubUser(parentId, user.getFirstname(), user.getLastname(), user.getPassword(), user.getAddress(), user.getEmail(), user.getRole());
-      return new ResponseEntity<>(HttpStatus.CREATED);
+  public ResponseEntity<Response> createSubUser(
+          @PathVariable(name="parentId") String parentId, @RequestBody User user) {
+            return  userAccountService.createSubUser(parentId, user.getFirstname(), user.getLastname(),user.getEmail(),  user.getPassword(), user.getAddress(), user.getRole(), user.getClient());
+      
   }
 
   @PutMapping("/editSubUser/{id}")
@@ -54,5 +52,7 @@ public class UserAccountController {
   public ResponseEntity<Response> deleteSubUser(@PathVariable(name="id") String _id){
     return userAccountService.deleteSubUser(_id);
   }
-  
+ 
+ 
+
 }

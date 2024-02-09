@@ -17,8 +17,8 @@ public class User {
     private String address; 
     private String role;
     private String passwordClaire;
-    @DBRef
-    private Client client; 
+    
+    private String client; 
  
 
     @DBRef 
@@ -39,7 +39,7 @@ public class User {
 	}
 
 	public User(String _id, String firstname, String lastname, String email, String password, String address,
-			String role, Client clients, List<User> subUsers) {
+			String role, String client, List<User> subUsers) {
 		super();
 		this._id = _id;
 		this.firstname = firstname;
@@ -48,7 +48,7 @@ public class User {
 		this.password = password;
 		this.address = address;
 		this.role = role;
-		
+		this.client = client;
 		this.subUsers = subUsers;
 	}
 
@@ -75,7 +75,7 @@ public class User {
 	
 
 	public User(String _id, String firstname, String lastname, String email, String password, String address,
-			Client clients, List<User> subUsers , String role) {
+			String client, List<User> subUsers , String role) {
 		super();
 		this._id = _id;
 		this.firstname = firstname;
@@ -83,7 +83,7 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.address = address;
-		
+		this.client=client;
 		this.subUsers = subUsers;
 		this.role=role;
 	}
@@ -161,12 +161,12 @@ public class User {
         return null; // Retourne null si l'ID n'est pas trouvé dans la liste des sous-utilisateurs
     }
 
-    public Client getClient() {
+    public String getClient() {
         return client;
     }
 
     public User(String _id, String firstname, String lastname, String email, String password, String address,
-            String role, String passwordClaire, Client client, List<User> subUsers) {
+            String role, String passwordClaire, String client, List<User> subUsers) {
         this._id = _id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -179,7 +179,7 @@ public class User {
         this.subUsers = subUsers;
     }
 
-    public void setClient(Client client) {
+    public void setClient(String client) {
         this.client = client;
     }
 }

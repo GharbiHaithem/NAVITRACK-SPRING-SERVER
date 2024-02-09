@@ -1,9 +1,11 @@
 package com.CRUD.PROJECT.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,21 +19,33 @@ import com.CRUD.PROJECT.entities.ArchiveSubUser;
 import com.CRUD.PROJECT.entities.Client;
 import com.CRUD.PROJECT.entities.User;
 
+import ch.qos.logback.classic.Logger;
+
 @Service
 public class UserAccountService {
+  private static final Logger logger = (Logger) LoggerFactory.getLogger(UserAccountService.class);
+
   @Autowired
   private UserAccountRepo userAccountRepo;
+  
   @Autowired
  private ArchiveSubUserRepo archiveSubUserRepo;
-  public List<User> rechercher() {
-	    List<User> result = userAccountRepo.findAll();
-	    System.out.println("Résultat de la recherche : " + result);
-	    return result;
-	}
+public List<User> rechercher() {
+    try {
+        List<User> result = userAccountRepo.findAll();
+        System.out.println("Résultat de la recherche : " + result);
+        return result;
+    } catch (Exception e) {
+        // Gérer l'exception de manière appropriée (imprimer des logs, renvoyer une réponse d'erreur, etc.)
+        e.printStackTrace();
+        return Collections.emptyList(); // Ou renvoyer une liste vide, selon le cas.
+    }
+}
 
-  public ResponseEntity<Response> createSubUser(String parentId, String firstname, String lastname, String password, String address, String role,
-          String email) {
+  public ResponseEntity<Response> createSubUser(String parentId, String firstname, String lastname,String email, String password, String address, String role,
+          String client) {
 Optional<User> parentUserOptional = userAccountRepo.findById(parentId);
+System.out.println(parentUserOptional);
 if (parentUserOptional.isPresent()) {
 User parentUser = parentUserOptional.get();
 
@@ -41,7 +55,7 @@ parentUser.setSubUsers(new ArrayList<>());
 }
 
 User subUser = new User();
-subUser.setLastName(lastname);
+subUser.setLastname(lastname);
 subUser.setFirstname(firstname);
 subUser.setEmail(email);
 BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
@@ -49,6 +63,7 @@ String passwordHashed =  bcrypt.encode(password);
 subUser.setPasswordClaire(password);
 subUser.setPassword(passwordHashed);
 subUser.setRole(role);
+subUser.setClient(client);
 userAccountRepo.save(subUser);
 
 parentUser.getSubUsers().add(subUser);
@@ -78,7 +93,7 @@ System.out.println("L'utilisateur est inclus dans d'autres utilisateurs : " + is
               userUpdate.setAddress(userData.getAddress());
               userUpdate.setEmail(userData.getEmail());
               userUpdate.setFirstname(userData.getFirstname());
-              userUpdate.setLastName(userData.getLastname());
+              userUpdate.setLastname(userData.getLastname());
               userUpdate.setRole(userData.getRole());
               String password = userData.getPassword();
               System.out.println(password);
@@ -147,6 +162,8 @@ public ResponseEntity<Response> deleteSubUser(String _id) {
     return ResponseEntity.status(HttpStatus.NOT_FOUND)
             .body(new Response("Utilisateur ou sous-utilisateur non trouvé", null, null, null, null));
 }
+
+
 
 
 }

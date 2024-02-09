@@ -107,7 +107,9 @@ public void setNomComplet(String nomComplet) {
 }
 
 
-
+public Client(String id) {
+	this._id = id;
+}
 
 
 
