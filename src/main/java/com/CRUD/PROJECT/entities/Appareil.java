@@ -6,9 +6,12 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 @Document(collection = "appareil")
 public class Appareil {
 	@Id
+	@JsonProperty("_id")
  private String _id;
 	private String modalTag;
 private String serialNumber;

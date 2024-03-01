@@ -6,6 +6,9 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -13,6 +16,7 @@ import javax.persistence.TemporalType;
 public class Vehicule {
 
 	@Id
+	@JsonProperty("_id")
 	private String _id;
 	private String matricule;
 	private String marque;
