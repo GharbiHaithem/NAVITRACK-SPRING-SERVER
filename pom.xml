@@ -78,7 +78,16 @@
     <artifactId>pdfbox</artifactId>
     <version>2.0.29</version> <!-- Utilisez la version la plus récente disponible -->
 </dependency>
-
+<dependency>
+    <groupId>org.xhtmlrenderer</groupId>
+    <artifactId>flying-saucer-pdf</artifactId>
+    <version>9.1.22</version> <!-- Vérifiez la dernière version sur le référentiel Maven -->
+</dependency>
+<dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>2.12.0</version> <!-- assurez-vous de la version correcte -->
+    </dependency>
 	</dependencies>
 
 	<build>

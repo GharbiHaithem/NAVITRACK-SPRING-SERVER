@@ -306,13 +306,16 @@ public void genererNouvelleFacture2() {
 
    
 	Map<Client, List<Facture>> facturesParClient = factureExistantes.stream()
-			.collect(Collectors.groupingBy(Facture::getClientId));
+        .filter(facture -> facture.getClientId() != null)
+        .collect(Collectors.groupingBy(Facture::getClientId));
 
   
 	facturesParClient.forEach((clientId, facturesDuClient) -> {
 	  
 		java.util.Optional<Facture> derniereFactureOpt = facturesDuClient.stream()
-				.max(Comparator.comparing(facture -> LocalDate.parse(facture.getDateFin(), formatter)));
+        .filter(facture -> facture.getDateFin() != null)
+        .max(Comparator.comparing(facture -> LocalDate.parse(facture.getDateFin(), formatter)));
+
 
 		derniereFactureOpt.ifPresent(derniereFacture -> {
 			LocalDate lastFactureDate = LocalDate.parse(derniereFacture.getDateFin(), formatter);

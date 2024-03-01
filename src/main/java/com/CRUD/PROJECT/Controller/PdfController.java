@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.CRUD.PROJECT.PdfGenerationRequest;
 import com.CRUD.PROJECT.Service.CloudinaryService;
+import com.lowagie.text.DocumentException;
 
 @RestController
 @CrossOrigin("*")
@@ -23,7 +25,9 @@ public class PdfController {
     private CloudinaryService cloudinaryService;
 
     @PostMapping("/generate-and-upload-pdf")
-    public String generateAndUploadPdf(@RequestBody String htmlContent) throws IOException {
-        return cloudinaryService.generateAndUploadPdf(htmlContent);
+    public String generateAndUploadPdf(@RequestBody PdfGenerationRequest  request) throws IOException, DocumentException {
+        String htmlContent = request.getHtmlContent();
+        String factureId = request.getFactureId();
+        return cloudinaryService.generateAndUploadPdf(htmlContent,factureId);
     }
 }

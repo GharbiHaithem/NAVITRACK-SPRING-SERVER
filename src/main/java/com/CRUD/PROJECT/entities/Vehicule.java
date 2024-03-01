@@ -11,6 +11,7 @@ import javax.persistence.TemporalType;
 
 @Document(collection= "vehicule")
 public class Vehicule {
+
 	@Id
 	private String _id;
 	private String matricule;
@@ -18,7 +19,7 @@ public class Vehicule {
 	private String model;
 	private String type;
 	private int puisanceFiscale;
-	private int anneeMiseEnCirculation;
+	private Date anneeMiseEnCirculation;
 	private int qtyCarburantLitre;
 	@DBRef
 	private Appareil appareil;
@@ -40,7 +41,7 @@ public class Vehicule {
 
 
 	public Vehicule(String _id, String matricule, String marque, String model, String type, int puisanceFiscale,
-			int anneeMiseEnCirculation, int qtyCarburantLitre, Appareil appareil,Client client) {
+			Date anneeMiseEnCirculation, int qtyCarburantLitre, Appareil appareil,Client client) {
 		super();
 		this._id = _id;
 		this.matricule = matricule;
@@ -103,10 +104,10 @@ public class Vehicule {
 	public void setPuisanceFiscale(int puisanceFiscale) {
 		this.puisanceFiscale = puisanceFiscale;
 	}
-	public int getAnneeMiseEnCirculation() {
+	public Date getAnneeMiseEnCirculation() {
 		return anneeMiseEnCirculation;
 	}
-	public void setAnneeMiseEnCirculation(int anneeMiseEnCirculation) {
+	public void setAnneeMiseEnCirculation(Date anneeMiseEnCirculation) {
 		this.anneeMiseEnCirculation = anneeMiseEnCirculation;
 	}
 	public int getQtyCarburantLitre() {

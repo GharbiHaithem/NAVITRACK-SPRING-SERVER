@@ -16,7 +16,7 @@ public class ArchiveVehicule {
 	private String model;
 	private String type;
 	private int puisanceFiscale;
-	private int anneeMiseEnCirculation;
+	private Date anneeMiseEnCirculation;
 	private int qtyCarburantLitre;
 	@DBRef
 	private Appareil appareil;
@@ -60,10 +60,10 @@ public class ArchiveVehicule {
 	public void setPuisanceFiscale(int puisanceFiscale) {
 		this.puisanceFiscale = puisanceFiscale;
 	}
-	public int getAnneeMiseEnCirculation() {
+	public Date getAnneeMiseEnCirculation() {
 		return anneeMiseEnCirculation;
 	}
-	public void setAnneeMiseEnCirculation(int anneeMiseEnCirculation) {
+	public void setAnneeMiseEnCirculation(Date anneeMiseEnCirculation) {
 		this.anneeMiseEnCirculation = anneeMiseEnCirculation;
 	}
 	public int getQtyCarburantLitre() {
@@ -91,7 +91,7 @@ public class ArchiveVehicule {
 		this.saveDate = saveDate;
 	}
 	public ArchiveVehicule(String _id, String matricule, String marque, String model, String type, int puisanceFiscale,
-			int anneeMiseEnCirculation, int qtyCarburantLitre, Appareil appareil, Client client, Date saveDate) {
+			Date anneeMiseEnCirculation, int qtyCarburantLitre, Appareil appareil, Client client, Date saveDate) {
 		super();
 		this._id = _id;
 		this.matricule = matricule;
