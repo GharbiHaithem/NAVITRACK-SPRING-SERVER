@@ -56,8 +56,8 @@ public ResponseEntity<Response> deleteAppareil(String appareilId) {
 	 Optional<Appareil> findAppareil = appareilRepo.findById(appareilId);
 	 if(findAppareil.isPresent()) {
 		 System.out.println(findAppareil.get().toString());
-		 appareilRepo.deleteById(findAppareil.get().get_id());
-		 archiveAppareil.set_id(findAppareil.get().get_id());
+		 appareilRepo.deleteById(findAppareil.get().getid());
+		 archiveAppareil.setid(findAppareil.get().getid());
 		 archiveAppareil.setAccessoire(findAppareil.get().getAccessoire());
 		 archiveAppareil.setCategory(findAppareil.get().getCategory());
 		 archiveAppareil.setPriceUnite(findAppareil.get().getPriceUnite());

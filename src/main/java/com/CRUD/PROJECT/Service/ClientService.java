@@ -25,7 +25,7 @@ public class ClientService {
 	    this.archiveClientRepo=archiveClientRepo;
 	}
 	public ResponseEntity<Response> savedClient(Client client) {
-		 String clientId = client.get_id();
+		 String clientId = client.getid();
 		   System.out.println(client); 
 		   
 		Client savedClient = clientRepo.save(client);
@@ -72,7 +72,7 @@ public class ClientService {
 		ArchiveClient archiveClient = new ArchiveClient();
 		Optional<Client> findClient = clientRepo.findById(_id);
 		if(findClient.isPresent()) {
-			archiveClient.set_id(findClient.get().get_id());
+			archiveClient.setid(findClient.get().getid());
 			archiveClient.setEmail(findClient.get().getEmail());
 			archiveClient.setMatriculeSociale(findClient.get().getMatriculeSociale());
 			archiveClient.setNomComplet(findClient.get().getNomComplet());

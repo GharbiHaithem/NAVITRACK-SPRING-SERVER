@@ -64,7 +64,7 @@ public class VehiculeService {
 	        }
 	        vehicule.setSaveDate(new Date());
             Vehicule createdVehicule = repo.save(vehicule);
-            String clientId = (createdVehicule.getClient().get_id());
+            String clientId = (createdVehicule.getClient().getid());
             
             Optional<Appareil> findAppareil = repo1.findById(appareilId);
             if (findAppareil.isPresent()) {
@@ -189,7 +189,7 @@ public ResponseEntity<Response> deleteVehicule(String vehiculeId) {
     Optional<Vehicule> optionalVehicule = repo.findById(vehiculeId);
 
     if (optionalVehicule.isPresent()) {
-    	archiveVehicule.set_id(optionalVehicule.get().get_id());
+    	archiveVehicule.setid(optionalVehicule.get().getid());
     	archiveVehicule.setAnneeMiseEnCirculation(optionalVehicule.get().getAnneeMiseEnCirculation());
     	archiveVehicule.setAppareil(optionalVehicule.get().getAppareil());
     	archiveVehicule.setClient(optionalVehicule.get().getClient());
@@ -225,7 +225,7 @@ public List<Vehicule> searchVehiculesByClientName(String clientName) {
     if (clientOptional.isPresent()) {
         Client client = clientOptional.get();
         System.out.println(client);
-        return repo.findByClient(client.get_id());
+        return repo.findByClient(client.getid());
     } else {
      
         return Collections.emptyList();

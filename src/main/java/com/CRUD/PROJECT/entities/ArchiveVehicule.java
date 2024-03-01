@@ -5,12 +5,17 @@ import java.util.Date;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Document("archiveVehicule") 
 public class ArchiveVehicule {
-	private String _id;
+		@Id
+	@JsonProperty("id")
+	private String id;
 	private String matricule;
 	private String marque;
 	private String model;
@@ -24,11 +29,11 @@ public class ArchiveVehicule {
 	private Client client;
 	   @Temporal(TemporalType.TIMESTAMP)
 	   private Date saveDate;
-	public String get_id() {
-		return _id;
+	public String getid() {
+		return id;
 	}
-	public void set_id(String _id) {
-		this._id = _id;
+	public void setid(String id) {
+		this.id = id;
 	}
 	public String getMatricule() {
 		return matricule;
@@ -90,10 +95,10 @@ public class ArchiveVehicule {
 	public void setSaveDate(Date saveDate) {
 		this.saveDate = saveDate;
 	}
-	public ArchiveVehicule(String _id, String matricule, String marque, String model, String type, int puisanceFiscale,
+	public ArchiveVehicule(String id, String matricule, String marque, String model, String type, int puisanceFiscale,
 			Date anneeMiseEnCirculation, int qtyCarburantLitre, Appareil appareil, Client client, Date saveDate) {
 		super();
-		this._id = _id;
+		this.id = id;
 		this.matricule = matricule;
 		this.marque = marque;
 		this.model = model;
@@ -110,7 +115,7 @@ public class ArchiveVehicule {
 	}
 	@Override
 	public String toString() {
-		return "ArchiveVehicule [_id=" + _id + ", matricule=" + matricule + ", marque=" + marque + ", model=" + model
+		return "ArchiveVehicule [_id=" + id + ", matricule=" + matricule + ", marque=" + marque + ", model=" + model
 				+ ", type=" + type + ", puisanceFiscale=" + puisanceFiscale + ", anneeMiseEnCirculation="
 				+ anneeMiseEnCirculation + ", qtyCarburantLitre=" + qtyCarburantLitre + ", appareil=" + appareil
 				+ ", client=" + client + ", saveDate=" + saveDate + "]";

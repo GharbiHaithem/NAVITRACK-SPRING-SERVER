@@ -6,10 +6,14 @@ import javax.persistence.Id;
 
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 @Document(collection = "facture")
 public class Facture {
 @Id
-private String _id;
+	
+	@JsonProperty("id")
+private String id;
 private String numeroFacture;
 private String dateDebut;
 private String dateFin;
@@ -22,14 +26,14 @@ private Client clientId;
 private String etat = "impayer";
 private Float priceUnitaire = (float) 20.00;
 private Double total ;
-public String get_id() {
-	return _id;
+public String getid() {
+	return id;
 }
 
-public Facture(String _id, String numeroFacture, String dateDebut, String dateFin, List<Appareil> appareilId,
+public Facture(String id, String numeroFacture, String dateDebut, String dateFin, List<Appareil> appareilId,
 		Client clientId, String etat, Float priceUnitaire , Double total) {
 	super();
-	this._id = _id;
+	this.id = id;
 	this.numeroFacture = numeroFacture;
 	this.dateDebut = dateDebut;
 	this.dateFin = dateFin;
@@ -84,8 +88,8 @@ public void setAppareilId(List<Appareil> maListe) {
 	this.appareilId = maListe;
 }
 
-public void set_id(String _id) {
-	this._id = _id;
+public void setid(String id) {
+	this.id = id;
 }
 public String getDateDebut() {
 	return dateDebut;
@@ -119,9 +123,9 @@ public void setDateFin(String dateFin) {
 
 
 
-public Facture(String _id,List<Appareil> appareilId, String numeroFacture, String dateDebut, String dateFin, Client clientId, String etat) {
+public Facture(String id,List<Appareil> appareilId, String numeroFacture, String dateDebut, String dateFin, Client clientId, String etat) {
 	super();
-	this._id = _id;
+	this.id = id;
 	this.numeroFacture = numeroFacture;
 	this.dateDebut = dateDebut;
 	this.dateFin = dateFin;

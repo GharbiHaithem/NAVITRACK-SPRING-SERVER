@@ -6,10 +6,13 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 @Document(collection = "archiveAppareil")
 public class ArchiveAppareil {
-	
-	 private String _id;
+	@Id
+	@JsonProperty("id")
+ private String id;
 		private String modalTag;
 	private String serialNumber;
 	private  Double  priceUnite;
@@ -17,11 +20,11 @@ public class ArchiveAppareil {
 	private Boolean accessoire = false; 
 	@DBRef
 	 private Category category ;
-	public String get_id() {
-		return _id;
+	public String getid() {
+		return id;
 	}
-	public void set_id(String _id) {
-		this._id = _id;
+	public void setid(String id) {
+		this.id = id;
 	}
 	public String getModalTag() {
 		return modalTag;
@@ -59,10 +62,10 @@ public class ArchiveAppareil {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	public ArchiveAppareil(String _id, String modalTag, String serialNumber, Double priceUnite, Number qtyStock,
+	public ArchiveAppareil(String id, String modalTag, String serialNumber, Double priceUnite, Number qtyStock,
 			Boolean accessoire, Category category) {
 		super();
-		this._id = _id;
+		this.id = id;
 		this.modalTag = modalTag;
 		this.serialNumber = serialNumber;
 		this.priceUnite = priceUnite;

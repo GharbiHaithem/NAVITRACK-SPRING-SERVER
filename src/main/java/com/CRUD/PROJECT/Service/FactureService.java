@@ -243,7 +243,7 @@ public class FactureService {
 
 						for (Appareil ancienAppareil : appareilsDeLaDerniereFacture) {
 							Appareil nouvelAppareil = new Appareil();
-							nouvelAppareil.set_id(ancienAppareil.get_id());
+							nouvelAppareil.setid(ancienAppareil.getid());
 							// Copiez d'autres propriétés si nécessaire
 							// ...
 							nouveauxAppareils.add(nouvelAppareil);

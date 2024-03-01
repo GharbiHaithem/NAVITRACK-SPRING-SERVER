@@ -11,8 +11,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Document(collection = "appareil")
 public class Appareil {
 	@Id
-	@JsonProperty("_id")
- private String _id;
+	@JsonProperty("id")
+ private String id;
 	private String modalTag;
 private String serialNumber;
 private  Double  priceUnite;
@@ -26,9 +26,9 @@ public Appareil() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-public Appareil(String _id, String serialNumber,  Category category, Double priceUnite, Number qtyStock , String modalTag) {
+public Appareil(String id, String serialNumber,  Category category, Double priceUnite, Number qtyStock , String modalTag) {
 	super();
-	this._id = _id;
+	this.id = id;
 	this.serialNumber = serialNumber;
 	   this.category= category;
 	this.priceUnite = priceUnite;
@@ -36,9 +36,9 @@ public Appareil(String _id, String serialNumber,  Category category, Double pric
 	this.modalTag = modalTag;
 }
 
-public Appareil(String _id, String modalTag, String serialNumber, Double priceUnite, Number qtyStock,
+public Appareil(String id, String modalTag, String serialNumber, Double priceUnite, Number qtyStock,
 		Boolean accessoire, Boolean affected, Category category) {
-	this._id = _id;
+	this.id = id;
 	this.modalTag = modalTag;
 	this.serialNumber = serialNumber;
 	this.priceUnite = priceUnite;
@@ -50,7 +50,7 @@ public Appareil(String _id, String modalTag, String serialNumber, Double priceUn
 public Appareil(String _id, String modalTag, String serialNumber, Double priceUnite, Number qtyStock,
 		Boolean accessoire, Category category) {
 	super();
-	this._id = _id;
+	this.id = id;
 	this.modalTag = modalTag;
 	this.serialNumber = serialNumber;
 	this.priceUnite = priceUnite;
@@ -64,8 +64,8 @@ public Boolean getAccessoire() {
 public void setAccessoire(Boolean accessoire) {
 	this.accessoire = accessoire;
 }
-public String get_id() {
-	return _id;
+public String getid() {
+	return id;
 }
 public String getModalTag() {
 	return modalTag;
@@ -73,8 +73,8 @@ public String getModalTag() {
 public void setModalTag(String modalTag) {
 	this.modalTag = modalTag;
 }
-public void set_id(String _id) {
-	this._id = _id;
+public void setid(String id) {
+	this.id = id;
 }
 public String getSerialNumber() {
 	return serialNumber;
@@ -103,7 +103,7 @@ public void setCategory(Category category) {
 }
 @Override
 public String toString() {
-	return "Appareil [_id=" + _id + ", modalTag=" + modalTag + ", serialNumber=" + serialNumber + ", priceUnite="
+	return "Appareil [_id=" + id + ", modalTag=" + modalTag + ", serialNumber=" + serialNumber + ", priceUnite="
 			+ priceUnite + ", qtyStock=" + qtyStock + ", accessoire=" + accessoire + ", category=" + category + "]";
 }
 public Boolean getAffected() {

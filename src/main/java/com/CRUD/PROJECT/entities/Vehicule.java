@@ -16,8 +16,8 @@ import javax.persistence.TemporalType;
 public class Vehicule {
 
 	@Id
-	@JsonProperty("_id")
-	private String _id;
+	@JsonProperty("id")
+	private String id;
 	private String matricule;
 	private String marque;
 	private String model;
@@ -31,8 +31,8 @@ public class Vehicule {
 	private Client client;
 	   @Temporal(TemporalType.TIMESTAMP)
 	   private Date saveDate;
-	public String get_id() {
-		return _id;
+	public String getid() {
+		return id;
 	}
 	
 	public Date getSaveDate() {
@@ -44,10 +44,10 @@ public class Vehicule {
 	}
 
 
-	public Vehicule(String _id, String matricule, String marque, String model, String type, int puisanceFiscale,
+	public Vehicule(String id, String matricule, String marque, String model, String type, int puisanceFiscale,
 			Date anneeMiseEnCirculation, int qtyCarburantLitre, Appareil appareil,Client client) {
 		super();
-		this._id = _id;
+		this.id = id;
 		this.matricule = matricule;
 		this.marque = marque;
 		this.model = model;
@@ -75,8 +75,8 @@ public class Vehicule {
 		this.appareil = appareil;
 	}
 
-	public void set_id(String _id) {
-		this._id = _id;
+	public void set_id(String id) {
+		this.id = id;
 	}
 	public String getMatricule() {
 		return matricule;
@@ -127,7 +127,7 @@ public class Vehicule {
 
 	@Override
 	public String toString() {
-		return "Vehicule [_id=" + _id + ", matricule=" + matricule + ", marque=" + marque + ", model=" + model
+		return "Vehicule [_id=" + id + ", matricule=" + matricule + ", marque=" + marque + ", model=" + model
 				+ ", type=" + type + ", puisanceFiscale=" + puisanceFiscale + ", anneeMiseEnCirculation="
 				+ anneeMiseEnCirculation + ", qtyCarburantLitre=" + qtyCarburantLitre + ", appareil=" + appareil + "]";
 	}

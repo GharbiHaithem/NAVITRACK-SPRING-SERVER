@@ -12,8 +12,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Document(collection = "clients")
 public class Client {
   @Id
-  @JsonProperty("_id")
-  private String _id;
+  @JsonProperty("id")
+  private String id;
   private String raisonSociale;
   private String matriculeSociale;
   private String siegeSociale;
@@ -27,10 +27,10 @@ public class Client {
 
 
 
-public Client(String _id, String raisonSociale, String matriculeSociale, String siegeSociale, String email,
+public Client(String id, String raisonSociale, String matriculeSociale, String siegeSociale, String email,
 		String telephone, String secteurActivite, String nomComplet, Boolean affected) {
 	super();
-	this._id = _id;
+	this.id = id;
 	this.raisonSociale = raisonSociale;
 	this.matriculeSociale = matriculeSociale;
 	this.siegeSociale = siegeSociale;
@@ -56,15 +56,15 @@ public void setAffected(Boolean affected) {
 }
 @Override
 public String toString() {
-	return "Client [_id=" + _id + ", raisonSociale=" + raisonSociale + ", matriculeSociale=" + matriculeSociale
+	return "Client [_id=" + id + ", raisonSociale=" + raisonSociale + ", matriculeSociale=" + matriculeSociale
 			+ ", siegeSociale=" + siegeSociale + ", email=" + email + ", telephone=" + telephone + ", secteurActivite="
 			+ secteurActivite + ", nomComplet=" + nomComplet +  "]";
 }
-public String get_id() {
-	return _id;
+public String getid() {
+	return id;
 }
-public void set_id(String _id) {
-	this._id = _id;
+public void set_id(String id) {
+	this.id = id;
 }
 public String getRaisonSociale() {
 	return raisonSociale;
@@ -111,7 +111,7 @@ public void setNomComplet(String nomComplet) {
 
 
 public Client(String id) {
-	this._id = id;
+	this.id = id;
 }
 
 

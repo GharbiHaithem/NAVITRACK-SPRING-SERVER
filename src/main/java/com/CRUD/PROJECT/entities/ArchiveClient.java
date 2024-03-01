@@ -1,10 +1,16 @@
 package com.CRUD.PROJECT.entities;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Document(collection = "archiveClient")
 public class ArchiveClient {
-	 private String _id;
+	
+		@Id
+	@JsonProperty("id")
+	 private String id;
 	  private String raisonSociale;
 	  private String matriculeSociale;
 	  private String siegeSociale;
@@ -13,11 +19,11 @@ public class ArchiveClient {
 	  private String secteurActivite;
 	  private String nomComplet;
 	  private Boolean affected = false;
-	public String get_id() {
-		return _id;
+	public String getid() {
+		return id;
 	}
-	public void set_id(String _id) {
-		this._id = _id;
+	public void setid(String id) {
+		this.id = id;
 	}
 	public String getRaisonSociale() {
 		return raisonSociale;
@@ -70,7 +76,7 @@ public class ArchiveClient {
 	public ArchiveClient(String _id, String raisonSociale, String matriculeSociale, String siegeSociale, String email,
 			String telephone, String secteurActivite, String nomComplet, Boolean affected) {
 		super();
-		this._id = _id;
+		this.id = id;
 		this.raisonSociale = raisonSociale;
 		this.matriculeSociale = matriculeSociale;
 		this.siegeSociale = siegeSociale;
@@ -85,7 +91,7 @@ public class ArchiveClient {
 	}
 	@Override
 	public String toString() {
-		return "ArchiveClient [_id=" + _id + ", raisonSociale=" + raisonSociale + ", matriculeSociale="
+		return "ArchiveClient [_id=" + id + ", raisonSociale=" + raisonSociale + ", matriculeSociale="
 				+ matriculeSociale + ", siegeSociale=" + siegeSociale + ", email=" + email + ", telephone=" + telephone
 				+ ", secteurActivite=" + secteurActivite + ", nomComplet=" + nomComplet + ", affected=" + affected
 				+ "]";

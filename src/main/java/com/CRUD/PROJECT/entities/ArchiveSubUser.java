@@ -5,10 +5,14 @@ package com.CRUD.PROJECT.entities;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 @Document(collection="archiveSubUser")
 public class ArchiveSubUser {
-     @Id
-    private String _id;
+     
+     	@Id
+	@JsonProperty("id")
+    private String id;
     private String firstname;
     private String lastname; 
     private String email;
@@ -22,8 +26,8 @@ public class ArchiveSubUser {
     private Client clients;
 
 
-    public String get_id() {
-        return _id;
+    public String getid() {
+        return id;
     }
 
 
@@ -67,8 +71,8 @@ public class ArchiveSubUser {
     }
 
 
-    public void set_id(String _id) {
-        this._id = _id;
+    public void setid(String id) {
+        this.id = id;
     }
 
 
