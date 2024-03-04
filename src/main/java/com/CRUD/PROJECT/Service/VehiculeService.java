@@ -64,7 +64,7 @@ public class VehiculeService {
 	        }
 	        vehicule.setSaveDate(new Date());
             Vehicule createdVehicule = repo.save(vehicule);
-            String clientId = (createdVehicule.getClient().getid());
+            String clientId = (createdVehicule.getClient().getId());
             
             Optional<Appareil> findAppareil = repo1.findById(appareilId);
             if (findAppareil.isPresent()) {
@@ -225,7 +225,7 @@ public List<Vehicule> searchVehiculesByClientName(String clientName) {
     if (clientOptional.isPresent()) {
         Client client = clientOptional.get();
         System.out.println(client);
-        return repo.findByClient(client.getid());
+        return repo.findByClient(client.getId());
     } else {
      
         return Collections.emptyList();

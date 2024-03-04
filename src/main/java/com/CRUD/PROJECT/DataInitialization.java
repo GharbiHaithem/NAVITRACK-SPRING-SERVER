@@ -23,10 +23,10 @@ public class DataInitialization implements CommandLineRunner {
     }
 
     private void createDefaultCategories() {
-        Category category1 = new Category("diagnostique");
-        Category category2 = new Category("diagnostique GPS");
-        Category category3 = new Category("diagnostique GPS CAM");
-        Category category4 = new Category("diagnostique GPS CAM route");
+        Category category1 = new Category(null, 0, "diagnostique");
+        Category category2 = new Category(null, 0, "diagnostique GPS");
+        Category category3 = new Category(null, 0 ,"diagnostique GPS CAM");
+        Category category4 = new Category(null, 0, "diagnostique GPS CAM route");
 
        
         if (categoryRepo.findByName(category1.getName()) == null) {
