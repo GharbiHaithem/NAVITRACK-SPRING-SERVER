@@ -47,7 +47,7 @@ public Appareil(String id, String modalTag, String serialNumber, Double priceUni
 	this.affected = affected;
 	this.category = category;
 }
-public Appareil(String _id, String modalTag, String serialNumber, Double priceUnite, Number qtyStock,
+public Appareil(String id, String modalTag, String serialNumber, Double priceUnite, Number qtyStock,
 		Boolean accessoire, Category category) {
 	super();
 	this.id = id;

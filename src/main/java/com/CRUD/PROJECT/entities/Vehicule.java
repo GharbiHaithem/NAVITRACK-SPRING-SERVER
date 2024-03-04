@@ -31,7 +31,7 @@ public class Vehicule {
 	private Client client;
 	   @Temporal(TemporalType.TIMESTAMP)
 	   private Date saveDate;
-	public String getid() {
+	public String getId() {
 		return id;
 	}
 	
@@ -75,7 +75,7 @@ public class Vehicule {
 		this.appareil = appareil;
 	}
 
-	public void set_id(String id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getMatricule() {

@@ -189,7 +189,7 @@ public ResponseEntity<Response> deleteVehicule(String vehiculeId) {
     Optional<Vehicule> optionalVehicule = repo.findById(vehiculeId);
 
     if (optionalVehicule.isPresent()) {
-    	archiveVehicule.setid(optionalVehicule.get().getid());
+    	archiveVehicule.setid(optionalVehicule.get().getId());
     	archiveVehicule.setAnneeMiseEnCirculation(optionalVehicule.get().getAnneeMiseEnCirculation());
     	archiveVehicule.setAppareil(optionalVehicule.get().getAppareil());
     	archiveVehicule.setClient(optionalVehicule.get().getClient());
