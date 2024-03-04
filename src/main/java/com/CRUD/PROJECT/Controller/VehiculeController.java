@@ -44,7 +44,7 @@ public class VehiculeController {
     @Operation(hidden = true) 
     @PostMapping(value="/save")
     public ResponseEntity<Response>  saveVehicule(@RequestBody Vehicule vehicule ) throws ParseException {
-    	String appareilId = vehicule.getAppareil().getid();
+    	String appareilId = vehicule.getAppareil().getId();
         System.out.println(vehicule);
         factureService.createFacture(vehicule);
     	return   vehiculeService.saveorUpdate(vehicule,appareilId);

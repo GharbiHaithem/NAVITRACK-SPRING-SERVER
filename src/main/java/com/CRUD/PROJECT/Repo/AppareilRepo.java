@@ -17,9 +17,9 @@ public interface AppareilRepo extends MongoRepository<Appareil, String> {
 	   
 	}
 
-	public List<Appareil> findBySerialNumberContaining(String terme);
+	public List<Appareil> findByCodeContaining(String terme);
 
-	public Optional<Appareil> findBySerialNumber(String serialNumber);
+	public Optional<Appareil> findByCode(String serialNumber);
 
 
 

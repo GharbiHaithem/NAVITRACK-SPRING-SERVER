@@ -32,8 +32,8 @@ public AppareilService(AppareilRepo appareilRepo , ArchiveAppareilRepo archiveAp
 }
 
 public ResponseEntity<Response> save(Appareil appareil) {
-    String serialNumber = appareil.getSerialNumber();
-    Optional<Appareil> findSerialAppareil = appareilRepo.findBySerialNumber(serialNumber);
+    String serialNumber = appareil.getCode();
+    Optional<Appareil> findSerialAppareil = appareilRepo.findByCode(serialNumber);
 
     if (findSerialAppareil.isPresent()) {
         // L'appareil avec le même numéro de série existe déjà
@@ -56,13 +56,13 @@ public ResponseEntity<Response> deleteAppareil(String appareilId) {
 	 Optional<Appareil> findAppareil = appareilRepo.findById(appareilId);
 	 if(findAppareil.isPresent()) {
 		 System.out.println(findAppareil.get().toString());
-		 appareilRepo.deleteById(findAppareil.get().getid());
-		 archiveAppareil.setid(findAppareil.get().getid());
+		 appareilRepo.deleteById(findAppareil.get().getId());
+		 archiveAppareil.setid(findAppareil.get().getId());
 		 archiveAppareil.setAccessoire(findAppareil.get().getAccessoire());
 		 archiveAppareil.setCategory(findAppareil.get().getCategory());
 		 archiveAppareil.setPriceUnite(findAppareil.get().getPriceUnite());
 		 archiveAppareil.setQtyStock(findAppareil.get().getQtyStock());
-		 archiveAppareil.setSerialNumber(findAppareil.get().getSerialNumber());
+		 archiveAppareil.setSerialNumber(findAppareil.get().getCode());
 		 
 		 archiveAppareilRepo.save(archiveAppareil);
 		 Vehicule findVehicule =  vehiculeRepo.findByAppareil(appareilId);
@@ -78,7 +78,7 @@ public ResponseEntity<Response> deleteAppareil(String appareilId) {
 
 public List<Appareil> searchAppareil(String terme) {
 	
-	return appareilRepo.findBySerialNumberContaining(terme);
+	return appareilRepo.findByCodeContaining(terme);
 }
 
 public ResponseEntity<Response> updateQuantity(String _id,Appareil qtyStock) {
@@ -115,7 +115,7 @@ public ResponseEntity<Response> updateAppareil(String id, Appareil dataAppareil)
 		existAppareil.setCategory(dataAppareil.getCategory());
 		existAppareil.setPriceUnite(dataAppareil.getPriceUnite());
 		existAppareil.setQtyStock(dataAppareil.getQtyStock());
-		existAppareil.setSerialNumber(dataAppareil.getSerialNumber());
+		existAppareil.setCode(dataAppareil.getCode());
 		 appareilRepo.save(existAppareil);
 		return ResponseEntity.ok(new Response("appareiiI updated", null, existAppareil, null, null, null));
 	}
