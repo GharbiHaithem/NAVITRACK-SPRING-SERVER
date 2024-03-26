@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -95,12 +96,13 @@ public class VehiculeController {
   }
 
   @GetMapping("/vehicule/matricule/{matricule}")
-  public ResponseEntity<Vehicule> getVehiculeByMatricule(@PathVariable String matricule){
+  public ResponseEntity<Response> getVehiculeByMatricule(@PathVariable String matricule){
     Vehicule vehicule = vehiculeService.getVehiculeByMatricule(matricule);
     if (vehicule != null) {
-        return ResponseEntity.ok(vehicule); // Retourne le véhicule trouvé
+        return ResponseEntity.ok(new Response("Véhicule trouve", vehicule, null, null, null, null));
+  
     } else {
-        return ResponseEntity.notFound().build(); // Aucun véhicule trouvé
+       return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new Response("Véhicule non trouvé", null, null, null, null));
     }
   }
 }
