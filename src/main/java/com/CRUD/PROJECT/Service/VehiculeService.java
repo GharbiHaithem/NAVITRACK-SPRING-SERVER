@@ -231,6 +231,12 @@ public List<Vehicule> searchVehiculesByClientName(String clientName) {
         return Collections.emptyList();
     }
 }
+public Vehicule getVehiculeByMatricule(String matricule) {
+	
+	System.out.println(matricule);
+	Vehicule vehiculeOptional = repo.findByMatricule(matricule);
+	return vehiculeOptional;
+}
 
 
 

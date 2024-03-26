@@ -45,7 +45,7 @@ public class VehiculeController {
     @PostMapping(value="/save")
     public ResponseEntity<Response>  saveVehicule(@RequestBody Vehicule vehicule ) throws ParseException {
     	String appareilId = vehicule.getAppareil().getId();
-        System.out.println(vehicule);
+        System.out.println("IID"+vehicule.getAppareil().getId());
         factureService.createFacture(vehicule);
     	return   vehiculeService.saveorUpdate(vehicule,appareilId);
     	
@@ -79,6 +79,7 @@ public class VehiculeController {
         List<Vehicule> vehicules = vehiculeService.searchVehicule(matricule);
         return vehicules;
     }
+    
     @GetMapping("/vehicule/{id}")
     public Optional<Vehicule> getVehicule(@PathVariable(name="id") String vehiculeId){ 
     return vehiculeService.getOneVehicule(vehiculeId) ; 
@@ -92,4 +93,15 @@ public class VehiculeController {
   public List<Vehicule> getVehiculesByNomClient(@RequestParam(name = "nomComplet", required = true) String nomClient) {
       return vehiculeService.searchVehiculesByClientName(nomClient);
   }
+
+  @GetMapping("/vehicule/matricule/{matricule}")
+  public ResponseEntity<Vehicule> getVehiculeByMatricule(@PathVariable String matricule){
+    Vehicule vehicule = vehiculeService.getVehiculeByMatricule(matricule);
+    if (vehicule != null) {
+        return ResponseEntity.ok(vehicule); // Retourne le véhicule trouvé
+    } else {
+        return ResponseEntity.notFound().build(); // Aucun véhicule trouvé
+    }
+  }
 }
+

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.CRUD.PROJECT.Response;
 import com.CRUD.PROJECT.entities.Client;
+import com.CRUD.PROJECT.entities.Vehicule;
 @Repository
 public interface ClientRepo extends MongoRepository<Client, String>{
 	
@@ -20,6 +21,9 @@ public List<Client> findByMatriculeSocialeContaining(String termeRecherche);
 
 
 Optional<Client> findByNomCompletContaining(String nomComplet);
+
+
+
 
 
 

@@ -17,6 +17,7 @@ private CategoryRepo categoryRepo;
     public ResponseEntity<Response> updateStck(Category dataCategory) {
         int newQtyStck  = dataCategory.getQtyStock();
        String catId = dataCategory.getId();
+       System.out.println(catId);
          Optional<Category> findCat = categoryRepo.findById(catId);
          if (findCat.isPresent()) {
           Category existingCategory = findCat.get();
