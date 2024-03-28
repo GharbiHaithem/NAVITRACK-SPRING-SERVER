@@ -54,19 +54,28 @@ public class VehiculeService {
 	        this.repo4 = clientRepo;
 	    }
 	  public ResponseEntity<Response> saveorUpdate(Vehicule vehicule, String appareilId) throws ParseException {
+		
+	
 	        Vehicule existingVehicule = repo.findByMatricule(vehicule.getMatricule());
 	        List<Appareil> maListe = new ArrayList<>();
-	        Date formattedDateDebut = null;
+	      
 	        Double priceTotal = null;
 	        Facture facture = new Facture(); 
 	        if (existingVehicule != null) {
 	            return ResponseEntity.status(HttpStatus.CONFLICT).body(new Response("L'immatriculation existe déjà.", null, null, null, null));
 	        }
 	        vehicule.setSaveDate(new Date());
+			String appId= vehicule.getAppareil().getId();
+		 Optional<Appareil>  findApp = repo1.findById(appId) ;
+		 System.out.println("findapp"+findApp);
+			vehicule.setAppareil(findApp.get());
+			
             Vehicule createdVehicule = repo.save(vehicule);
+			
             String clientId = (createdVehicule.getClient().getId());
             
             Optional<Appareil> findAppareil = repo1.findById(appareilId);
+			
             if (findAppareil.isPresent()) {
                 Appareil appareil = findAppareil.get();
                 appareil.setAffected(true);
