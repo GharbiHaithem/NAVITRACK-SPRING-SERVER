@@ -65,13 +65,14 @@ public class VehiculeService {
 	            return ResponseEntity.status(HttpStatus.CONFLICT).body(new Response("L'immatriculation existe déjà.", null, null, null, null));
 	        }
 	        vehicule.setSaveDate(new Date());
-			String appId= vehicule.getAppareil().getId();
-		 Optional<Appareil>  findApp = repo1.findById(appId) ;
-		 System.out.println("findapp"+findApp);
+			
+		 Optional<Appareil>  findApp = repo1.findById(appareilId) ;
+		 System.out.println(findApp.get());
+	
 			vehicule.setAppareil(findApp.get());
-			
+			System.out.println("VEHICUE "+vehicule);
             Vehicule createdVehicule = repo.save(vehicule);
-			
+			System.out.println("createdVehicule ddddddddddddddddddddddddddd"+createdVehicule);
             String clientId = (createdVehicule.getClient().getId());
             
             Optional<Appareil> findAppareil = repo1.findById(appareilId);
@@ -116,7 +117,7 @@ public class VehiculeService {
               SimpleDateFormat outputFormat = new SimpleDateFormat("dd-MM-yyyy");
               String formattedDate2 = outputFormat.format(modifiedDate);
               
-              System.out.println(formattedDate2);
+             
               facture.setDateDebut(formattedDate2);
               calendar.add(Calendar.MONTH, 1);
 
@@ -159,7 +160,7 @@ public class VehiculeService {
 
 
 	public List<Vehicule> listVehicules() {
-		
+		System.out.println(repo.findAll());
 	return this.repo.findAll();
 	}
 

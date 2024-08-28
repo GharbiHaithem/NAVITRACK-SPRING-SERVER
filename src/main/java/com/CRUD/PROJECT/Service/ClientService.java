@@ -35,9 +35,9 @@ public class ClientService {
 		
 		return clientRepo.findAll();
 	}
-	public Optional<Client> getOneClient(String clientId) {
+	public Optional<Client> getOneClient(String id) {
 		// TODO Auto-generated method stub
-		return clientRepo.findById(clientId);
+		return clientRepo.findById(id);
 	}
 	public List<Client> rechercher(String termeRecherche) {
 		

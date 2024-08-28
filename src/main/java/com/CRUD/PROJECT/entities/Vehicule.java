@@ -29,6 +29,7 @@ public class Vehicule {
 	private String model;
 	private String type;
 	private int puisanceFiscale;
+
 	private Date anneeMiseEnCirculation;
 	private int qtyCarburantLitre;
 	@DBRef

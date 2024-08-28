@@ -40,16 +40,16 @@ public class ClientController {
 	return clientService.savedClient(client);
 	  
   } 
-
+  @GetMapping("/{id}")
+  public Optional<Client> getAClient(@PathVariable String id) {
+	  return clientService.getOneClient(id);
+  }
   @GetMapping("/clients")
   public List<Client> getClient(){
 	  return clientService.getAllClients();
   } 
   
-  @GetMapping("/{id}")
-  public Optional<Client> getAClient(@PathVariable(name="id") String clientId) {
-	  return clientService.getOneClient(clientId);
-  }
+
  
   @GetMapping("/search")
   public List<Client> rechercher(@RequestParam("query") String termeRecherche) {
