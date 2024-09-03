@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Logo {
     private String url;
-    private String assetId;
-    private String publicId;
+    private String asset_id;
+    private String public_id;
 }
