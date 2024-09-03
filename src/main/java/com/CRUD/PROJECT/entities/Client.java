@@ -29,8 +29,10 @@ public class Client {
   private String secteurActivite;
   private String nomComplet;
   private Boolean affected = false;
-  private String logo = [];
+  private String[] logo;
 
+
+  
 
 
 
