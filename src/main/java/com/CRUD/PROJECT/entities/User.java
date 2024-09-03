@@ -17,7 +17,8 @@ public class User {
     private String address; 
     private String role;
     private String passwordClaire;
-    
+    private String NumPermis;
+    private String PieceIdentite;
     private String client; 
  
 
@@ -25,6 +26,22 @@ public class User {
     private List<User> subUsers ;
     public String getFirstname() {
         return firstname;
+    }
+
+    public String getNumPermis() {
+        return NumPermis;
+    }
+
+    public void setNumPermis(String numPermis) {
+        NumPermis = numPermis;
+    }
+
+    public void setPieceIdentite(String pieceIdentite) {
+        PieceIdentite = pieceIdentite;
+    }
+
+    public String getPieceIdentite() {
+        return PieceIdentite;
     }
 
     public List<User> getSubUsers() {

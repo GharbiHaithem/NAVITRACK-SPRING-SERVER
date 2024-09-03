@@ -43,7 +43,7 @@ public List<User> rechercher() {
 }
 
   public ResponseEntity<Response> createSubUser(String parentId, String firstname, String lastname,String email, String password, String address, String role,
-          String client) {
+          String client , String NumPermis, String PieceIdentite) {
 Optional<User> parentUserOptional = userAccountRepo.findById(parentId);
 System.out.println(parentUserOptional);
 if (parentUserOptional.isPresent()) {
@@ -64,6 +64,8 @@ subUser.setPasswordClaire(password);
 subUser.setPassword(passwordHashed);
 subUser.setRole(role);
 subUser.setClient(client);
+subUser.setNumPermis(NumPermis);
+subUser.setPieceIdentite(PieceIdentite);
 userAccountRepo.save(subUser);
 
 parentUser.getSubUsers().add(subUser);

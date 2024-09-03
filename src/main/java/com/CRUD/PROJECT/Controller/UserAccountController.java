@@ -38,7 +38,7 @@ public class UserAccountController {
   @PostMapping("/createSubUser/{parentId}")
   public ResponseEntity<Response> createSubUser(
           @PathVariable(name="parentId") String parentId, @RequestBody User user) {
-            return  userAccountService.createSubUser(parentId, user.getFirstname(), user.getLastname(),user.getEmail(),  user.getPassword(), user.getAddress(), user.getRole(), user.getClient());
+            return  userAccountService.createSubUser(parentId, user.getFirstname(), user.getLastname(),user.getEmail(),  user.getPassword(), user.getAddress(), user.getRole(), user.getClient(),user.getNumPermis(),user.getPieceIdentite());
       
   }
 
