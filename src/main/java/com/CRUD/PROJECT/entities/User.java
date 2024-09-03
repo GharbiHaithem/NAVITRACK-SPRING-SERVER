@@ -73,13 +73,6 @@ public class User {
 		this.subUsers = subUsers;
 	}
 
-	public String get_id() {
-		return _id;
-	}
-
-	public void set_id(String _id) {
-		this._id = _id;
-	}
 
 	public String getLastname() {
 		return lastname;
@@ -111,13 +104,9 @@ public class User {
         this.firstname = firstname;
     }
 
-    public String getLastName() { 
-        return lastname;
-    }
+  
 
-    public void setLastName(String lastname) { 
-        this.lastname = lastname;
-    }
+  
 
     public String getEmail() {
         return email;
