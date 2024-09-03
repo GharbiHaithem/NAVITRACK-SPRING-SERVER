@@ -20,6 +20,7 @@ import com.CRUD.PROJECT.Response;
 
 import com.CRUD.PROJECT.Service.ClientService;
 import com.CRUD.PROJECT.entities.Client;
+import com.CRUD.PROJECT.entities.Logo;
 
 import io.swagger.v3.oas.annotations.Operation;
 
@@ -37,6 +38,11 @@ public class ClientController {
  
   @PostMapping("/save")
   public ResponseEntity<Response> saveClient(@RequestBody Client client ){
+     if (client.getLogo() != null) {
+        for (Logo logo : client.getLogo()) {
+            System.out.println("Logo URL : " + logo.getUrl());
+            System.out.println("Logo Public ID : " + logo.getPublicId());
+        } }
 	return clientService.savedClient(client);
 	  
   } 
