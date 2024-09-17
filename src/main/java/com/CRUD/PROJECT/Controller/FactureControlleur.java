@@ -24,7 +24,7 @@ import com.CRUD.PROJECT.entities.Vehicule;
 import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
-@CrossOrigin("*,https://navitrack-dashbord.onrender.com/")
+@CrossOrigin("*")
 @RequestMapping("/api/factures")
 public class FactureControlleur {
   @Autowired

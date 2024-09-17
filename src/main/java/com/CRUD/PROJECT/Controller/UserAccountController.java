@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 
 @RestController
-@CrossOrigin(value = "*,https://navitrack-dashbord.onrender.com/")
+@CrossOrigin(value = "*")
 @RequestMapping("api/user")
 public class UserAccountController {
   @Autowired
