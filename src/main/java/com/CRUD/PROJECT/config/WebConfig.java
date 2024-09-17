@@ -11,7 +11,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-            .allowedOrigins("https://navitrack-spring-production.up.railway.app/swagger-ui/index.html#") // Remplacez ceci par l'URL de Swagger UI
+            .allowedOrigins("https://navitrack-spring-production.up.railway.app") // Remplacez ceci par l'URL de Swagger UI
             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
             .allowedHeaders("*")
             .allowCredentials(true);
