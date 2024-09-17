@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*,https://navitrack-dashbord.onrender.com/")
 @RequestMapping("api/category")
 public class CategoryController {
 @Autowired

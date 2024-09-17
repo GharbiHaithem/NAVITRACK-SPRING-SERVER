@@ -25,7 +25,7 @@ import com.CRUD.PROJECT.entities.Logo;
 import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin("*,https://navitrack-dashbord.onrender.com/")
 @RequestMapping("/api/client")
 public class ClientController {
 	@Autowired

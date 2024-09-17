@@ -17,7 +17,7 @@ import com.CRUD.PROJECT.Service.CloudinaryService;
 import com.lowagie.text.DocumentException;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin("*,https://navitrack-dashbord.onrender.com/")
 @RequestMapping("/api")
 public class PdfController {
 

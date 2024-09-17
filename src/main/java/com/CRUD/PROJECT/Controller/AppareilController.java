@@ -26,7 +26,7 @@ import com.CRUD.PROJECT.entities.Appareil;
 import io.swagger.v3.oas.annotations.Operation;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*,https://navitrack-dashbord.onrender.com/")
 @RequestMapping("api/appareil")
 public class AppareilController {
 	
