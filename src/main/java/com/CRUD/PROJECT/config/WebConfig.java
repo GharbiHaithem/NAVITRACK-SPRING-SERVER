@@ -1,5 +1,6 @@
-package com.CRUD.PROJECT.config; // Remplace par le package approprié
+package com.CRUD.PROJECT.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -10,8 +11,9 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("*,http://navitrack-spring-production.up.railway.app") // Remplace par l'URL où Swagger est hébergé
-                .allowedMethods("GET", "POST", "PUT", "DELETE")
-                .allowedHeaders("*");
+            .allowedOrigins("https://navitrack-spring-production.up.railway.app/swagger-ui/index.html#") // Remplacez ceci par l'URL de Swagger UI
+            .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+            .allowedHeaders("*")
+            .allowCredentials(true);
     }
 }
