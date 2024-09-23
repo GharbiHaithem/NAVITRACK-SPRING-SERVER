@@ -62,7 +62,7 @@ BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
 String passwordHashed =  bcrypt.encode(password);
 subUser.setPasswordClaire(password);
 subUser.setPassword(passwordHashed);
-subUser.setRole(role);
+subUser.setRole(null);
 subUser.setClient(client);
 subUser.setNumPermis(NumPermis);
 subUser.setPieceIdentite(PieceIdentite);
@@ -96,7 +96,7 @@ System.out.println("L'utilisateur est inclus dans d'autres utilisateurs : " + is
               userUpdate.setEmail(userData.getEmail());
               userUpdate.setFirstname(userData.getFirstname());
               userUpdate.setLastname(userData.getLastname());
-              userUpdate.setRole(userData.getRole());
+              userUpdate.setRole(null);
               String password = userData.getPassword();
               System.out.println(password);
               BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
