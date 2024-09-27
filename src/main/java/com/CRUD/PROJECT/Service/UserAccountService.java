@@ -62,7 +62,7 @@ BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
 String passwordHashed =  bcrypt.encode(password);
 subUser.setPasswordClaire(password);
 subUser.setPassword(passwordHashed);
-subUser.setRole(null);
+subUser.setRole(role);
 subUser.setClient(client);
 subUser.setNumPermis(NumPermis);
 subUser.setPieceIdentite(PieceIdentite);
@@ -70,7 +70,7 @@ userAccountRepo.save(subUser);
 
 parentUser.getSubUsers().add(subUser);
  User createsubuser =   userAccountRepo.save(parentUser);
- return ResponseEntity.ok(new Response("accunt created ", null, null, null, null, createsubuser));
+ return ResponseEntity.ok(new Response("account created ya imtinen enfin", null, null, null, null, createsubuser));
 }
 return null;
 

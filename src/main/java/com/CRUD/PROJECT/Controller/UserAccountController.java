@@ -31,7 +31,7 @@ public class UserAccountController {
   @Autowired
   public  UserAccountService userAccountService;
 
-  @GetMapping("/")
+  @GetMapping("/users")
   public List<User> getAll() {
       return userAccountService.rechercher();
   }

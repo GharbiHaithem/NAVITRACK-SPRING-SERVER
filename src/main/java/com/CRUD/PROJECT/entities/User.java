@@ -1,12 +1,14 @@
 package com.CRUD.PROJECT.entities;
 
-import java.util.HashSet;
+
 import java.util.List;
-import java.util.Set;
+
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -27,9 +29,9 @@ public class User {
     private String PieceIdentite;
     private String client; 
   
-    @DBRef  
-    private Set<Role> roles = new HashSet<>();
-    @DBRef 
+
+    private String role;
+    @DBRef (lazy = false)
     private List<User> subUsers ;
     public String getFirstname() {
         return firstname;
@@ -55,15 +57,15 @@ public class User {
 		return subUsers;
 	}
     public String getRole() {
-		return getRole();
+		return role;
 	}
 
-	public void setRole(Set<Role> roles) {
-		this.roles = roles;
+	public void setRole(String role) {
+		this.role= role;
 	}
 
 	public User(String _id, String firstname, String lastname, String email, String password, String address,
-    Set<Role> role, String client, List<User> subUsers) {
+    String role, String client, List<User> subUsers) {
 		super();
 		this._id = _id;
 		this.firstname = firstname;
@@ -71,7 +73,7 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.address = address;
-		this.roles = role;
+		this.role = role;
 		this.client = client;
 		this.subUsers = subUsers;
 	}
@@ -99,7 +101,7 @@ public class User {
 	
 
 	public User(String _id, String firstname, String lastname, String email, String password, String address,
-			String client, List<User> subUsers , Set<Role> role) {
+			String client, List<User> subUsers , String role) {
 		super();
 		this._id = _id;
 		this.firstname = firstname;
@@ -109,7 +111,7 @@ public class User {
 		this.address = address;
 		this.client=client;
 		this.subUsers = subUsers;
-		this.roles=role;
+		this.role=role;
 	}
 
 	
@@ -146,14 +148,14 @@ public class User {
         this.address = address;
     }
 
-    public User(String firstname,Set<Role> role, String lastname, String email, String password, String address) {
+    public User(String firstname,String role, String lastname, String email, String password, String address) {
         super();
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
         this.address = address;
-        this.roles = role;
+        this.role = role;
     }
 
 	public User() {
@@ -186,14 +188,14 @@ public class User {
     }
 
     public User(String _id, String firstname, String lastname, String email, String password, String address,
-            Set<Role> role, String passwordClaire, String client, List<User> subUsers) {
+    String role, String passwordClaire, String client, List<User> subUsers) {
         this._id = _id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
         this.address = address;
-        this.roles = role;
+        this.role = role;
         this.passwordClaire = passwordClaire;
         this.client = client;
         this.subUsers = subUsers;
